@@ -1,6 +1,6 @@
 import { MovieResponse } from "./movie.response.interface"
 
-export interface Root {
+export interface PopularMoviesResponse {
   page: number
   results: MovieResponse[]
   total_pages: number

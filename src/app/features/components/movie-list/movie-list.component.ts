@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import { MovieService } from '../../../../services/movie.service';
+import {mockedResponse} from "../../../../mocked.response";
 
 @Component({
   selector: 'app-movie-list',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss'
 })
-export class MovieListComponent {
+export class MovieListComponent implements AfterViewInit {
+  constructor(private readonly movieService: MovieService) {
+  }
 
+  response = mockedResponse
+
+  ngAfterViewInit(): void {
+    //this.movieService.getPopularMovies().subscribe((popularMovies) => {
+     // console.log(popularMovies);
+    //});
+  }
 }
