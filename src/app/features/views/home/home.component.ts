@@ -9,5 +9,5 @@ import { CategorySelectorComponent } from "../../components/category-selector/ca
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
+  title = process.env['TITLE'] 
 }

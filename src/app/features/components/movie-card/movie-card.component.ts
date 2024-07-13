@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './movie-card.component.scss'
 })
 export class MovieCardComponent {
-
 }
