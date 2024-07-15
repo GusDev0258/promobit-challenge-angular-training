@@ -1,0 +1,10 @@
+.movie-list{
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1480px;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+  }
+}

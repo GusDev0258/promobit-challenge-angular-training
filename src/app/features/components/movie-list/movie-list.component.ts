@@ -1,11 +1,14 @@
 import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { MovieService } from '../../../../services/movie.service';
 import {mockedResponse} from "../../../../mocked.response";
+import {MovieCardComponent} from "../movie-card/movie-card.component";
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [],
+  imports: [
+    MovieCardComponent
+  ],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss'
 })

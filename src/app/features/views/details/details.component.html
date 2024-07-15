@@ -1,0 +1,47 @@
+<section class="details">
+  <section class="details__container">
+    <div class="details__image-container">
+      <img [src]="getImagePosterUrl()" [alt]="movieDetails?.original_title"/>
+    </div>
+    <section class="details__movie">
+      <div class="details__movie-info">
+        <h1>{{ movieDetails?.title }}</h1>
+        <div class="details__movie-detailed-info">
+          <span>{{ movieDetails?.release_date | date:"shortDate" }}</span>
+          - @for (genre of movieDetails?.genres; track $index) {
+          <span> {{ $index == movieDetails!.genres.length - 1 ? genre.name : genre.name + ","}} </span>
+        } - {{movieDetails?.runtime | duration}}
+        </div>
+      </div>
+      <div class="details__movie-rating">
+        <div></div>
+        <div>{{movieDetails?.vote_average | average}} Avaliação dos usuários</div>
+      </div>
+      <div class="details__movie-synopsis">
+        <h2>Synopsis</h2>
+          {{movieDetails?.overview}}
+      </div>
+      <div class="details__movie-credits">
+          @for (crewMate of movieCredits?.crew; track $index) {
+            <div class="details__movie-credits-info">
+              <p class="details__movie-credits-info-name">{{crewMate.name}}</p>
+              <p class="details__movie-credits-info-department">{{crewMate.known_for_department}}</p>
+            </div>
+          }
+      </div>
+    </section>
+  </section>
+  <section class="details__container-more">
+    <article class="details__cast">
+      @for(castMember of movieCredits?.cast; track $index) {
+        <app-cast-card [castMember]="castMember"></app-cast-card>
+      }
+    </article>
+    <div class="details__movie-trailer">
+
+    </div>
+    <article class="details__recommendations">
+
+    </article>
+  </section>
+</section>

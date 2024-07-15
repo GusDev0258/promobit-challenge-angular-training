@@ -1,3 +1,5 @@
-@for (movie of response.results; track $index) {
-
-}
+<section class="movie-list__container">
+  @for (movie of response.results; track $index) {
+    <app-movie-card [cardMovie]=movie></app-movie-card>
+  }
+</section>

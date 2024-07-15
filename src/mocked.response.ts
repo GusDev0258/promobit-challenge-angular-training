@@ -1,4 +1,4 @@
-import {PopularMoviesResponse} from "./interfaces/popular-movies.response.interface";
+import {PopularMoviesResponse} from "./interfaces/responses/movie/popular-movies.response.interface";
 
 export const mockedResponse: PopularMoviesResponse = {
   page: 1,

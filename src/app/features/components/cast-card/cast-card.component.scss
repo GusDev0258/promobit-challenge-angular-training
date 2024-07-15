@@ -1,0 +1,33 @@
+@import '../../../../variables';
+.cast {
+  &__container {
+    width: 200px;
+    height: 300px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__image {
+    width: 80%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+  &__info {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    color: $grey50;
+    &-name {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
