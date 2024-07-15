@@ -1,0 +1,30 @@
+@import '../../../../../variables';
+.header {
+  &__container {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 2vw;
+    background-color: $primaryPurple;
+  }
+  &__title {
+    font-size: 1.5rem;
+    position: relative;
+    color: $white;
+    display: flex;
+    align-items: center;
+    width: 7%;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 3rem;
+      height: 1.25rem;
+      border-radius: 8px;
+      background-color: $white;
+      right: 0;
+    }
+  }
+}

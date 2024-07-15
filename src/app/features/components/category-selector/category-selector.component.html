@@ -1,0 +1,15 @@
+<section class="category-selector__container">
+  <h1 class="category-selector__title">Milhões de filmes, séries e pessoas para descobrir. Explore já.</h1>
+  <section class="category-selector__filters-container">
+    <label class="category-selector__filters-label">Filtre por:</label>
+    <ul class="category-selector__filters">
+      @for (genre of genresList; track $index) {
+        <li>
+          <button class="category-selector__filter">
+            {{ genre }}
+          </button>
+        </li>
+      }
+    </ul>
+  </section>
+</section>
