@@ -11,6 +11,7 @@ import {CommonModule, DatePipe} from "@angular/common";
 import {DurationPipe} from "../../../pipes/duration.pipe";
 import {AveragePipe} from "../../../pipes/average.pipe";
 import {CastCardComponent} from "../../components/cast-card/cast-card.component";
+import {MovieCardComponent} from "../../components/movie-card/movie-card.component";
 
 @Component({
   selector: 'app-details',
@@ -20,7 +21,8 @@ import {CastCardComponent} from "../../components/cast-card/cast-card.component"
     DurationPipe,
     CommonModule,
     AveragePipe,
-    CastCardComponent
+    CastCardComponent,
+    MovieCardComponent
   ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
@@ -1458,31 +1460,31 @@ export class DetailsComponent implements OnInit {
 
 
   ngOnInit() {
-    // forkJoin({
-    //   details: this._movieService.getMovieById(this.id).pipe(catchError(err => {
-    //     this.error = err;
-    //     return [];
-    //   })),
-    //   credits: this._movieService.getCreditsByMovieId(this.id).pipe(catchError(err => {
-    //     this.error = err;
-    //     return [];
-    //   })),
-    //   recommendations: this._movieService.getRecommendationsByMovieId(this.id).pipe(catchError(err => {
-    //     this.error = err;
-    //     return [];
-    //
-    // }).subscribe({
-    //   next: ({details, credits, recommendations}) => {
-    //     this.movieDetails = details;
-    //     this.movieCredits = credits;
-    //     this.movieRecommendations = recommendations;
-    //   },
-    //   error: err => {
-    //     this.error = err;
-    //     console.error("Error fecthing data", err);
-    //   }
-    // })
-  }
+    forkJoin({
+      details: this._movieService.getMovieById(this.id).pipe(catchError(err => {
+        this.error = err;
+        return [];
+      })),
+      credits: this._movieService.getCreditsByMovieId(this.id).pipe(catchError(err => {
+        this.error = err;
+        return [];
+      })),
+      recommendations: this._movieService.getRecommendationsByMovieId(this.id).pipe(catchError(err => {
+        this.error = err;
+        return [];
+      })),
+    }).subscribe({
+      next: ({details, credits, recommendations}) => {
+        this.movieDetails = details;
+        this.movieCredits = credits;
+        this.movieRecommendations = recommendations;
+      },
+      error: err => {
+        this.error = err;
+        console.error("Error fecthing data", err);
+        }
+      })
+    }
 
   getImagePosterUrl() {
     return `${environment.api_image_url}${this.movieDetails?.poster_path}`
