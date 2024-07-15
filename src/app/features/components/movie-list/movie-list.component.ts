@@ -19,8 +19,8 @@ export class MovieListComponent implements AfterViewInit {
   response = mockedResponse
 
   ngAfterViewInit(): void {
-    //this.movieService.getPopularMovies().subscribe((popularMovies) => {
-     // console.log(popularMovies);
-    //});
+    this.movieService.getPopularMovies().subscribe((popularMovies) => {
+     console.log(popularMovies);
+    });
   }
 }

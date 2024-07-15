@@ -32,16 +32,21 @@
     </section>
   </section>
   <section class="details__container-more">
+    <div>
+    <h2>Elenco Original</h2>
     <article class="details__cast">
       @for(castMember of movieCredits?.cast; track $index) {
         <app-cast-card [castMember]="castMember"></app-cast-card>
       }
     </article>
-    <div class="details__movie-trailer">
-
     </div>
+    <div>
+    <h2>Recomendações</h2>
     <article class="details__recommendations">
-
+      @for (recommendation of movieRecommendations?.results; track $index) {
+        <app-movie-card [cardMovie]="recommendation"></app-movie-card>
+      }
     </article>
+    </div>
   </section>
 </section>
